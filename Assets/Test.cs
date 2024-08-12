@@ -32,10 +32,9 @@ public sealed class Test : MonoBehaviour
     {
         _countBuffer.SetCounterValue(0);
 
-        Compute.SetInt("WriteValue", (Time.frameCount / 10) % 10);
         Compute.SetBuffer(0, "ValueBuffer", _valueBuffer);
         Compute.SetBuffer(0, "CountBuffer", _countBuffer);
-        Compute.Dispatch(0, 8, 1, 1);
+        Compute.Dispatch(0, EntryCount, 1, 1);
 
         AsyncGPUReadback.RequestIntoNativeArray(ref _readBuffer, _valueBuffer);
         AsyncGPUReadback.WaitAllRequests();

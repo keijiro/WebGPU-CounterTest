@@ -1,6 +1,5 @@
 #pragma kernel Test
 
-uint WriteValue;
 RWStructuredBuffer<uint> ValueBuffer;
 RWStructuredBuffer<uint> CountBuffer;
 

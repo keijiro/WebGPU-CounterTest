@@ -1,0 +1,11 @@
+#pragma kernel Test
+
+uint WriteValue;
+RWStructuredBuffer<uint> ValueBuffer;
+RWStructuredBuffer<uint> CountBuffer;
+
+[numthreads(1, 1, 1)]
+void Test(uint id : SV_DispatchThreadID)
+{
+    ValueBuffer[id] = CountBuffer.IncrementCounter();
+}
